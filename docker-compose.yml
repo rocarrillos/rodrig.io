@@ -1,0 +1,6 @@
+version: '3'
+services:
+  main:
+    image: rodrigo-v0.0.0
+    ports: 
+      - '80:80'
