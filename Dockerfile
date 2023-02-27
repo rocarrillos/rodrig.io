@@ -1,19 +1,14 @@
-# ==== CONFIGURE =====
-# Use a Node 19 base image
-FROM node:19-alpine
-# Set the working directory to /app inside the container
+# built according to https://www.geeksforgeeks.org/how-to-dockerize-a-reactjs-app/
+
+FROM node:19-alpine as builder
 WORKDIR /app
-# Copy app files
 COPY . .
-# ==== BUILD =====
-# Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN npm install
-# Build the app
 RUN npm run build
-# ==== RUN =======
-# Set the env to "production"
+
+FROM nginx:1.23.3-alpine as production
 ENV NODE_ENV production
-# Expose the port on which the app will be running (3000 is the default that `serve` uses)
-EXPOSE 3000
-# Start the app
-CMD [ "npx", "serve", "build" ]
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
