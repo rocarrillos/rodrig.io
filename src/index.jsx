@@ -1,55 +1,54 @@
-
 import {
   createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
-import ReactDOM from "react-dom/client";
-import React from "react";
+  RouterProvider,
+} from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
 import './App.css';
 import Home from './Home';
-import AboutMe from "./AboutMe";
-import Education from "./Education";
-import Career from "./Career";
-import Blog from "./Blog";
+import AboutMe from './AboutMe';
+import Education from './Education';
+import Career from './Career';
+import Blog from './Blog';
 import reportWebVitals from './reportWebVitals';
-import ResponsiveAppBar from "./ResponsiveAppBar";
+import ResponsiveAppBar from './ResponsiveAppBar';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <ResponsiveAppBar />,
     children: [
-      { index: true,
-        element: <Home />
+      {
+        index: true,
+        element: <Home />,
       },
       {
-        path: "about",
+        path: 'about',
         element: <AboutMe />,
       },
       {
-        path: "career",
+        path: 'career',
         element: <Career />,
       },
       {
-        path: "education",
+        path: 'education',
         element: <Education />,
       },
       {
-        path: "blog",
+        path: 'blog',
         element: <Blog />,
       },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div id='routerContainer'>
+    <div id="routerContainer">
       <RouterProvider router={router} />
     </div>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

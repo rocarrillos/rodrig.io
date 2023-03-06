@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +10,7 @@ function App() {
         <p>
           Coming soon!
         </p>
-        Built with 
+        Built with
         <a
           className="App-link"
           href="https://reactjs.org"

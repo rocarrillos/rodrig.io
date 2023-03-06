@@ -10,8 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Home from '@mui/icons-material/Home';
-import { Link, Outlet } from "react-router-dom";
-
+import { Link, Outlet } from 'react-router-dom';
 
 const pages = ['about', 'education', 'career', 'blog'];
 
@@ -29,9 +28,9 @@ export default function ResponsiveAppBar() {
   return (
     <div>
       <AppBar position="absolute">
-        <Container maxWidth="xl" style={{backgroundColor: '#572932'}}>
+        <Container maxWidth="xl" style={{ backgroundColor: '#572932' }}>
           <Toolbar disableGutters>
-            <Link to='/' style = {{ textDecoration: 'none' }}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
               <Home sx={{ color: 'white', display: { xs: 'none', sm: 'flex' }, mr: 1 }} />
             </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
@@ -66,15 +65,20 @@ export default function ResponsiveAppBar() {
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
-                      <Link to={page} style = {{ textDecoration: 'none', color: 'black' }}>{page}</Link>
-                      </Typography>
+                      <Link to={page} style={{ textDecoration: 'none', color: 'black' }}>{page}</Link>
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
-            </Box> 
-            <Link to='/' style = {{ textDecoration: 'none', alignContent: 'left', alignSelf: 'left', color: 'white' } } >
-                <Home sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
-            </Link>    
+            </Box>
+            <Link
+              to="/"
+              style={{
+                textDecoration: 'none', alignContent: 'left', alignSelf: 'left', color: 'white',
+              }}
+            >
+              <Home sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
+            </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
               {pages.map((page) => (
                 <Link key={page} to={page} style={{ textDecoration: 'none' }}>
@@ -90,7 +94,7 @@ export default function ResponsiveAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
-      <div id='outlet'><Outlet></Outlet></div>
+      <div id="outlet"><Outlet /></div>
     </div>
   );
 }
