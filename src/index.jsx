@@ -6,8 +6,6 @@ import ReactDOM from 'react-dom/client';
 import React from 'react';
 import './App.css';
 import Home from './Home';
-import AboutMe from './AboutMe';
-import Education from './Education';
 import Career from './Career';
 import Blog from './Blog';
 import reportWebVitals from './reportWebVitals';
@@ -23,20 +21,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'about',
-        element: <AboutMe />,
-      },
-      {
         path: 'career',
         element: <Career />,
       },
       {
-        path: 'education',
-        element: <Education />,
-      },
-      {
         path: 'blog',
         element: <Blog />,
+      },
+      {
+        path: 'home',
+        element: <Home />,
       },
     ],
   },

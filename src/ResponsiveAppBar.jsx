@@ -9,10 +9,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import Home from '@mui/icons-material/Home';
 import { Link, Outlet } from 'react-router-dom';
 
-const pages = ['about', 'education', 'career', 'blog'];
+const pages = ['home', 'career', 'blog'];
 
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -27,12 +26,9 @@ export default function ResponsiveAppBar() {
 
   return (
     <div>
-      <AppBar position="absolute">
-        <Container maxWidth="xl" style={{ backgroundColor: '#572932' }}>
+      <AppBar position="absolute" style={{ backgroundColor: '#572932' }}>
+        <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <Home sx={{ color: 'white', display: { xs: 'none', sm: 'flex' }, mr: 1 }} />
-            </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
               <IconButton
                 size="large"
@@ -71,14 +67,6 @@ export default function ResponsiveAppBar() {
                 ))}
               </Menu>
             </Box>
-            <Link
-              to="/"
-              style={{
-                textDecoration: 'none', alignContent: 'left', alignSelf: 'left', color: 'white',
-              }}
-            >
-              <Home sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
-            </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
               {pages.map((page) => (
                 <Link key={page} to={page} style={{ textDecoration: 'none' }}>
